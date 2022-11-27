@@ -1,60 +1,37 @@
 import React from 'react';
-import {Image, Text} from 'react-native';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/native';
+import { Text, ViewContainer, CustomView } from './componets/atoms';
+import Button from './componets/molecules/button';
 import {useGetAvatar} from './hooks/useGetAvatar';
-import { selectUser } from './redux/slides/userSlide';
+import { selectUser, setUser } from './redux/slides/userSlide';
 
 
 // Más instrucciones en https://yanatechnologies.notion.site/Frontend-Challenge-9427a4f79be54b5bb8c3ace2dd93a414
 const Challenge = () => {
   const yanaAvatar = useGetAvatar('yana');
   const user = useSelector(selectUser)
-  console.log("user", user)
+
   return (
-    <RoundedContainer bgColor={'white'} padding={12} >
-      <FlexRowVCenter>
-        <YanaAvatar source={yanaAvatar}/>
-        <TextInstructionsContainer>
-          <BigText>Instrucciones:</BigText>
-          <Text>Comienza editandodd el asrivo <CodeText>src/index.tsx</CodeText></Text>
-        </TextInstructionsContainer>
-      </FlexRowVCenter>
-    </RoundedContainer>
+    <ViewContainer bgColor={'white'} padding={12}  >
+      <CustomView 
+        paddingTop={68} 
+        justifyContent='center'
+        alignItems='center' >
+        <Text size='24px'>Registrate</Text>
+        <Button 
+          bgColor='#FF8755' 
+          onPress={()=> console.log("hola")} 
+          textSize='16px'
+          borderRadius='32px'
+          width='327px'
+          height='64px'
+        > 
+          Crear cuenta
+        </Button>
+      </CustomView>
+    </ViewContainer>
   );
 };
 
 export default Challenge;
-
-const BigText = styled.Text`
-  font-size: 24px;
-  font-weight: bold;
-  color: #000;
-`;
-const CodeText = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  color: #a33;
-  background-color: #eee;
-  padding: 0 4px;
-`;
-const YanaAvatar = styled(Image)`
-  width: 100px;
-  height: 100px;
-`;
-const FlexRowVCenter = styled.View`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-const TextInstructionsContainer = styled.View`
-  margin-left: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-const RoundedContainer = styled.View<{bgColor: string; padding: number}>`
-    background-color: ${(props) => props.bgColor ?? 'transparent'};
-    border-radius: 6px;
-    padding: ${(props) => props.padding ?? 0}px;
-`;
