@@ -13,7 +13,7 @@ const Challenge = () => {
         <YanaAvatar source={yanaAvatar}/>
         <TextInstructionsContainer>
           <BigText>Instrucciones:</BigText>
-          <Text>Comienza editando el archivo <CodeText>src/index.tsx</CodeText></Text>
+          <Text>Comienza editandodd el asrivo <CodeText>src/index.tsx</CodeText></Text>
         </TextInstructionsContainer>
       </FlexRowVCenter>
     </RoundedContainer>
