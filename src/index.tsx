@@ -1,12 +1,16 @@
 import React from 'react';
 import {Image, Text} from 'react-native';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/native';
 import {useGetAvatar} from './hooks/useGetAvatar';
+import { selectUser } from './redux/slides/userSlide';
 
 
 // Más instrucciones en https://yanatechnologies.notion.site/Frontend-Challenge-9427a4f79be54b5bb8c3ace2dd93a414
 const Challenge = () => {
   const yanaAvatar = useGetAvatar('yana');
+  const user = useSelector(selectUser)
+  console.log("user", user)
   return (
     <RoundedContainer bgColor={'white'} padding={12} >
       <FlexRowVCenter>

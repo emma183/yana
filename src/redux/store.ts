@@ -3,13 +3,16 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {setupListeners} from '@reduxjs/toolkit/query';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { chatSlice } from './slides/chatSlide';
+import {userSlice} from './slides/userSlide';
+
 
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-const rootReducer = combineReducers([]);
+const rootReducer = combineReducers({ user: userSlice.reducer, chat: chatSlice.reducer});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const preloadedState = {};
