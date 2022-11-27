@@ -19,7 +19,7 @@ export default function App() {
       <Provider store={store}>
         <PersistGate persistor={persistor} loading={null}>
         <NavigationContainer >
-          <Stack.Navigator initialRouteName="Navigation">
+          <Stack.Navigator initialRouteName="SignUpScreen">
             <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Navigation" component={NavigationScreen} options={{ headerShown: false }} />
           </Stack.Navigator>

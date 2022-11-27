@@ -4,17 +4,16 @@ import Button from '../componets/molecules/button';
 import { StyleSheet } from "react-native";
 import { useFormik } from "formik";
 import {SigNupValidations as validationSchema} from '../validations';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../redux/slides/userSlide';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser, setUser } from '../redux/slides/userSlide';
 import Tab, { TabItem } from '../componets/molecules/tab';
 
-interface IFormSignUp {
-  name: string;
-  email: string;
-  password: string;
-}
+
 
 const NavigationScreen = () => {
+
+  const user = useSelector(selectUser)
+  console.log(user)
   const onTabSelected = (index) => {
     console.log(index);
   };

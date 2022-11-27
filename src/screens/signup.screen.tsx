@@ -13,12 +13,17 @@ interface IFormSignUp {
   password: string;
 }
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values: IFormSignUp) => {
+    const userDispatch = {
+      name: values.name,
+      email: values.email,
+     };
     dispatch(
-      setUser(values)
+      setUser(userDispatch),
+      navigation.navigate('Navigation')
     )
   }
 
@@ -38,7 +43,7 @@ const SignUpScreen = () => {
         paddingTop={68} 
         justifyContent='center'
         alignItems='center' >
-        <Text size='24px'>Registrate</Text>
+        <Text weight={700} size='24px'>Regístrate</Text>
       </CustomView>
       <CustomView
         paddingTop={48}
