@@ -20,6 +20,7 @@
     "commitizen": "^4.2.1",
     "expo": "~46.0.13",
     "expo-status-bar": "~1.4.0",
+    "formik": "^2.1.4",
     "git-cz": "^4.7.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
@@ -30,7 +31,8 @@
     "react-redux": "^8.0.4",
     "redux-persist": "^6.0.0",
     "styled-components": "^5.3.6",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.3",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

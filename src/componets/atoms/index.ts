@@ -8,3 +8,5 @@ export { default as CustomView } from './view';
 export * from './view';
 export { default as Input } from './input';
 export * from './input';
+export { default as HelperText } from './helperText';
+export * from './helperText';

@@ -1,11 +1,34 @@
 import React from 'react';
-import { Text, ViewContainer, CustomView, Input } from './componets/atoms';
+import { Text, ViewContainer, CustomView, Input, HelperText } from './componets/atoms';
 import Button from './componets/molecules/button';
 import { StyleSheet } from "react-native";
+import { useFormik } from "formik";
+import {SigNupValidations as validationSchema} from './validations';
+
+interface IFormSignUp {
+  name: string;
+  email: string;
+  password: string;
+}
 
 const Challenge = () => {
+
+  const handleOnSubmit = (values: IFormSignUp) => {
+    console.log(values);
+  }
+
+  const formik = useFormik<IFormSignUp>({
+    initialValues: {
+      name: '',
+      email: '',
+      password: '',
+    },
+    onSubmit: handleOnSubmit,
+    validationSchema,
+  });
+
   return (
-    <ViewContainer bgColor={'white'} padding={12}  >
+    <ViewContainer bgColor={'white'} padding={12}>
       <CustomView 
         paddingTop={68} 
         justifyContent='center'
@@ -20,21 +43,31 @@ const Challenge = () => {
             placeholder="Nombre de usuario" 
             styles={styles.input}
             type='text'
+            onChangeText={formik.handleChange('name')}
+            value={formik.values.name}
             />
+          {formik.errors.name && <HelperText>{formik.errors.name}</HelperText>} 
           <Input
             placeholder="Correo electrónico"
             styles={styles.input}
             type='email'
+            onChangeText={formik.handleChange('email')}
+            value={formik.values.email}
             />
+          {formik.errors.email && <HelperText>{formik.errors.email}</HelperText>}
           <Input
             placeholder="Contraseña"
             styles={styles.input}
             type='password'
             secureTextEntry={true}
+            onChangeText={formik.handleChange('password')}
+            value={formik.values.password}
             />
+          {formik.errors.password && <HelperText>{formik.errors.password}</HelperText>}
           <Button 
+            disabled={!formik.isValid}
             styles={styles.button}
-            onPress={()=> console.log("hola")} 
+            onPress={()=> handleOnSubmit(formik.values)} 
           > 
             Crear cuenta
           </Button>

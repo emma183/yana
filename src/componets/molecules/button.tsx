@@ -4,11 +4,13 @@ interface ButtonProps {
     onPress?: () => void;
     children?: any;
     styles?: any;
+    disabled?: boolean;
 }
 
 const Button =(props: ButtonProps) => {
     return (
         <ButtonContainer
+            disabled={props.disabled ?? false}
             onPress={props.onPress}
             bgColor={props.styles.backGroundColor}
             borderRadius={props.styles.borderRadius}
