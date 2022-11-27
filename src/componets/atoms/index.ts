@@ -10,3 +10,7 @@ export { default as Input } from './input';
 export * from './input';
 export { default as HelperText } from './helperText';
 export * from './helperText';
+export { default as TabItem } from './tabItem';
+export * from './tabItem';
+export { default as TabContainer } from './tabContainer';
+export * from './tabContainer';
