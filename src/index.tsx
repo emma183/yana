@@ -4,6 +4,8 @@ import Button from './componets/molecules/button';
 import { StyleSheet } from "react-native";
 import { useFormik } from "formik";
 import {SigNupValidations as validationSchema} from './validations';
+import { useDispatch } from 'react-redux';
+import { setUser } from './redux/slides/userSlide';
 
 interface IFormSignUp {
   name: string;
@@ -12,9 +14,12 @@ interface IFormSignUp {
 }
 
 const Challenge = () => {
+  const dispatch = useDispatch();
 
   const handleOnSubmit = (values: IFormSignUp) => {
-    console.log(values);
+    dispatch(
+      setUser(values)
+    )
   }
 
   const formik = useFormik<IFormSignUp>({
