@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, ViewContainer, CustomView, Input, HelperText } from './componets/atoms';
-import Button from './componets/molecules/button';
+import { Text, ViewContainer, CustomView, Input, HelperText } from '../componets/atoms';
+import Button from '../componets/molecules/button';
 import { StyleSheet } from "react-native";
 import { useFormik } from "formik";
-import {SigNupValidations as validationSchema} from './validations';
+import {SigNupValidations as validationSchema} from '../validations';
 import { useDispatch } from 'react-redux';
-import { setUser } from './redux/slides/userSlide';
+import { setUser } from '../redux/slides/userSlide';
 
 interface IFormSignUp {
   name: string;
@@ -13,7 +13,7 @@ interface IFormSignUp {
   password: string;
 }
 
-const Challenge = () => {
+const SignUpScreen = () => {
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values: IFormSignUp) => {
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Challenge;
+export default SignUpScreen;

@@ -5,25 +5,26 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import {persistor, store} from './src/redux/store';
 import {PersistGate} from 'redux-persist/integration/react';
-import Challenge from './src';
+import SignUpScreen from './src/screens/signup.screen';
+import { Text, View } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor} loading={null}>
-        <AppContainer>
-          <NavigationContainer >
-            <Challenge/>
-          </NavigationContainer>
-        </AppContainer>
-      </PersistGate>
-    </Provider>
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={null}>
+        <NavigationContainer >
+          <Stack.Navigator initialRouteName="SignUpScreen">
+            <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }} />
+            
+          </Stack.Navigator>
+        </NavigationContainer>
+        </PersistGate>
+      </Provider>
   );
 }
 
-const AppContainer = styled.View`
-  flex: 1;
-  background-color: #ecf0f1;
-  align-items: center;
-  justify-content: center;
-`;
