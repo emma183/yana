@@ -6,3 +6,5 @@ export { default as ViewContainer } from './viewContainer';
 export * from './viewContainer';
 export { default as CustomView } from './view';
 export * from './view';
+export { default as Input } from './input';
+export * from './input';

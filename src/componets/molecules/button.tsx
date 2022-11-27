@@ -2,29 +2,27 @@ import { ButtonContainer, Text } from "../atoms"
 
 interface ButtonProps {
     onPress?: () => void;
-    bgColor?: string;
     children?: any;
-    textSize?: string;
-    textWeight?: string;
-    textColor?: string;
-    borderRadius?: string;
-    width?: string;
-    height?: string;
+    styles?: any;
 }
 
 const Button =(props: ButtonProps) => {
     return (
         <ButtonContainer
             onPress={props.onPress}
-            bgColor={props.bgColor}
-            borderRadius={props.borderRadius}
-            width={props.width}
-            height={props.height}
+            bgColor={props.styles.backGroundColor}
+            borderRadius={props.styles.borderRadius}
+            width={props.styles.width}
+            height={props.styles.height}
+            marginTop={props.styles.marginTop}
+            marginBottom={props.styles.marginBottom}
+            marginLeft={props.styles.marginLeft}
+            marginRight={props.styles.marginRight}
             >
             <Text 
-                size={props.textSize} 
-                weight={props.textWeight} 
-                color={props.textColor}>
+                size={props.styles.fontSize} 
+                weight={props.styles.fontWeight} 
+                color={props.styles.textColor}>
                     {props.children}
             </Text>
         </ButtonContainer>
