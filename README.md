@@ -11,7 +11,7 @@ https://yanatechnologies.notion.site/Frontend-Challenge-9427a4f79be54b5bb8c3ace2
 
 ### Signup complete
 
-<img src="./assets/screens/signup-all.jpg" alt="signup-complete" width="350px" height="600px" >
+<img src="./assets/screens/signup-complete.jpg" alt="signup-complete" width="350px" height="600px" >
 
 ### Chat
 
