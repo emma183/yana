@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { CustomView, TextByChat, ScrollView, ViewContainerChat, Input } from '../../componets/atoms';
-import { ChatUser, selectChat, setAddMessageObject } from '../../redux/slides/chatSlide';
-import { selectUser } from '../../redux/slides/userSlide';
-import Button from '../molecules/button';
+import { ChatUser, selectChat, setAddMessageObject } from '../../redux/slice/chatSlice';
+import { selectUser } from '../../redux/slice/userSlice';
+import Button from '../molecules/Button';
 
 const ChatTemplate = () => {
     const chat = useSelector(selectChat)

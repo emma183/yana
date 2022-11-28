@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Text, ViewContainer, CustomView, Input, HelperText } from '../componets/atoms';
-import Button from '../componets/molecules/button';
+import Button from '../componets/molecules/Button';
 import { StyleSheet } from "react-native";
 import { useFormik } from "formik";
 import {SigNupValidations as validationSchema} from '../validations';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../redux/slides/userSlide';
+import { setUser } from '../redux/slice/userSlice';
 
 interface IFormSignUp {
   name: string | undefined;

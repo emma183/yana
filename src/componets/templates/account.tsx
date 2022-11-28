@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { Text,  CustomView, ImageCircle } from '../../componets/atoms';
-import Button from '../../componets/molecules/button';
-import { setDeleteChat } from '../../redux/slides/chatSlide';
-import { clearUser, selectUser } from '../../redux/slides/userSlide';
+import Button from '../molecules/Button';
+import { setDeleteChat } from '../../redux/slice/chatSlice';
+import { clearUser, selectUser } from '../../redux/slice/userSlice';
 
 
 const AccountTemplate = ({navigation}) => {

@@ -9,8 +9,8 @@ import { persistStore, persistReducer,
   PURGE,
   REGISTER, } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-import { chatSlice } from './slides/chatSlide';
-import {userSlice} from './slides/userSlide';
+import { chatSlice } from './slice/chatSlice';
+import {userSlice} from './slice/userSlice';
 
 
 const persistConfig = {

@@ -1,2 +1,2 @@
-export {default as ButtonContainer} from './button';
-export * from './button';
+export {default as ButtonContainer} from './Button';
+export * from './Button';
