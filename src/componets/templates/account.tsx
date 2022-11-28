@@ -1,22 +1,20 @@
 import React from 'react';
 import { StyleSheet } from "react-native";
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { Text,  CustomView, ImageCircle } from '../../componets/atoms';
 import Button from '../../componets/molecules/button';
-import { selectUser } from '../../redux/slides/userSlide';
-import {persistor} from '../../redux/store';
+import { clearUser, selectUser } from '../../redux/slides/userSlide';
 
 
-const AccountTemplate = () => {
+const AccountTemplate = ({navigation}) => {
   const user = useSelector(selectUser)
+  const dispatch = useDispatch();
 
-  const purge = async() => {
-   await persistor.pause();
-     await persistor.flush().then(() => {
-        return  persistor.purge();
-      });
-}
+  const handleOnLogout = () => {
+    dispatch(clearUser());
+  }
 
   return (
     <CustomView
@@ -37,7 +35,7 @@ const AccountTemplate = () => {
       <Text
         weight={700}
         >
-          {user.name}
+          {user?.name}
       </Text>
       <Text
         marginTop={32}
@@ -49,11 +47,11 @@ const AccountTemplate = () => {
       <Text
           weight={700}
         >
-          {user.email}
+          {user?.email}
       </Text>
       <Button 
         styles={styles.button}
-        onPress={() => purge()} 
+        onPress={handleOnLogout} 
         > 
           Cerrar Sesion
       </Button>
