@@ -63,10 +63,9 @@ const ChatTemplate = () => {
             />
         <Button
             disabled={message === null}
-            styles={styles.button}
+            styles={message ===  null ? styles.buttonDisabled : styles.button}
             onPress={handleOnSendMessaggess}      
-        >
-            add
+        >a
             </Button>
             </CustomView>
     </ViewContainerChat>
@@ -80,10 +79,20 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         width: '56px',
         height: '56px',
-        fontSize: '16px',
+        fontSize: '20px',
         fontWeight: 'bold',
         textColor: '#672A11',
       },
+      buttonDisabled:{
+        backGroundColor: '#C4C4C4',
+        textSize: '30px',
+        borderRadius: 50,
+        width: '56px',
+        height: '56px',
+        fontSize: '20px',
+        fontWeight: 'bold',
+        textColor: '#FFFFFF',
+        },
     input:{
         backgroundColor: '#FFFFFF',
         borderRadius: 28,
