@@ -16,3 +16,7 @@ export { default as TabContainer } from './tabContainer';
 export * from './tabContainer';
 export { default as ImageCircle } from './imageCircle';
 export * from './imageCircle';
+export { default as TextByChat } from './textByChat';
+export * from './textByChat';
+export { default as ScrollView } from './scrollView';
+export * from './scrollView';
