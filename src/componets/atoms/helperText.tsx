@@ -1,6 +1,15 @@
 import styled from 'styled-components/native';
 
-const HelperText = styled.Text`
+interface IHelperText {
+    color?: string;
+    size?: number;
+    weight?: string;
+    paddingTop?: number;
+    paddingBottom?: number;
+    marginBottom?: number;
+}
+
+const HelperText = styled.Text<{props: IHelperText}>`
     font-size: ${(props) => props.size ?? 10}px;
     font-weight: ${(props) => props.weight ?? 'normal'};
     padding-top: ${(props) => props.paddingTop ?? 0}px;

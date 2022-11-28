@@ -1,6 +1,16 @@
 import styled from 'styled-components/native';
 
-const ImageCircule = styled.Image`
+interface IImageCircle {
+    width?: string;
+    height?: string;
+    borderRadius?: string;
+    marginTop?: number;
+    marginBottom?: number;
+    marginLeft?: number;
+    marginRight?: number;
+}
+
+const ImageCircule = styled.Image<{props: IImageCircle}>`
     width: ${(props) => props.width ?? '100px'};
     height: ${(props) => props.height ?? '100px'};
     border-radius: ${(props) => props.borderRadius ?? '50px'};

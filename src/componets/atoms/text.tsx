@@ -1,6 +1,17 @@
 import styled from 'styled-components/native';
 
-const Text = styled.Text`
+interface IText {
+    size?: string;
+    weight?: string;
+    paddingTop?: number;
+    paddingBottom?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
+    marginTop?: number;
+    color?: string;
+}
+
+const Text = styled.Text<{props: IText}>`
     font-size: ${(props) => props.size ?? '16px'};
     font-weight: ${(props) => props.weight ?? 'normal'};
     padding-top: ${(props) => props.paddingTop ?? 0}px;

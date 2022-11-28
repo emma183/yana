@@ -1,6 +1,18 @@
 import styled from 'styled-components/native';
 
-const TextByChat = styled.Text`
+interface ITextByChat {
+    size?: string;
+    weight?: string;
+    paddingTop?: number;
+    paddingBottom?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
+    marginTop?: number;
+    color?: string;
+    bgColor?: string;
+}
+
+const TextByChat = styled.Text<{props: ITextByChat}>`
     font-size: ${(props) => props.size ?? '14px'};
     font-weight: ${(props) => props.weight ?? 'normal'};
     padding-top: ${(props) => props.paddingTop ?? 8}px;

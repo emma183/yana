@@ -5,17 +5,20 @@ import { useSelector } from 'react-redux';
 
 import { CustomView, TextByChat, ScrollView, ViewContainerChat, Input } from '../../componets/atoms';
 import { ChatUser, selectChat, setAddMessageObject } from '../../redux/slides/chatSlide';
+import { selectUser } from '../../redux/slides/userSlide';
 import Button from '../molecules/button';
 
 const ChatTemplate = () => {
     const chat = useSelector(selectChat)
+    const user = useSelector(selectUser)
+
     const dispatch = useDispatch();
     const [message, setMessage] = useState<string | null>(null);
 
     const handleOnSendMessaggess = () => {
         const messagePatient = {
             id: ChatUser.Patient,
-            name: 'Jane',
+            name: user?.name,
             message: message,
         }
         dispatch(setAddMessageObject(messagePatient));
@@ -27,8 +30,6 @@ const ChatTemplate = () => {
     dispatch(setAddMessageObject(messageYana));
     setMessage(null);
     }
-
-   
 
   return (
     <ViewContainerChat>

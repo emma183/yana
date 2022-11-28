@@ -1,6 +1,19 @@
 import styled from 'styled-components/native';
 
-const ButtonContainer = styled.TouchableHighlight`
+interface ButtonContainerProps {
+    bgColor?: string;
+    borderRadius?: number;
+    padding?: string;
+    width?: string;
+    height?: string;
+    marginTop?: number;
+    marginBottom?: number;
+    marginLeft?: number;
+    marginRight?: number;
+    opacity?: boolean;
+}
+
+const ButtonContainer = styled.TouchableHighlight<{props: ButtonContainerProps}>`
     background-color: ${(props) => props.bgColor ?? '#000'};
     border-radius: ${(props) => props.borderRadius ?? 6}px;
     padding: ${(props) => props.padding ?? '12px'};

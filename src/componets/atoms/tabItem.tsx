@@ -1,9 +1,13 @@
 import styled from "styled-components";
 
+interface ITabItem {
+    selected?: boolean;
+}
+
 const selectedColor = "#FF8755";
 const defaultColor = "#000000";
 
-const TabItem = styled.Text`
+const TabItem = styled.Text<{props: ITabItem}>`
   background-color: white;
   width: 50%;
   padding: 10px;

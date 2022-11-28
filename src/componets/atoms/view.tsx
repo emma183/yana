@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-interface IViewContainer {
+interface IView {
     bgColor?: string;
     borderRadius?: string;
     padding?: number;
@@ -14,7 +14,7 @@ interface IViewContainer {
 }
 
 
-const CustomView = styled.View<{props: IViewContainer}>`
+const CustomView = styled.View<{props: IView}>`
 background-color: ${(props) => props.bgColor ?? 'transparent'};
 border-radius: ${(props) => props.borderRadius ?? '6px'};
 padding: ${(props) => props.padding ?? 0}px;

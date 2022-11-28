@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ReactNode } from 'react';
-import { Text, ViewContainer, CustomView} from '../componets/atoms';
+import { ViewContainer, CustomView} from '../componets/atoms';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/slides/userSlide';
 import Tab, { TabItem } from '../componets/molecules/tab';
 import AccountTemplate from '../componets/templates/account';

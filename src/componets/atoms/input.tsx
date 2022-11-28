@@ -1,6 +1,31 @@
 import styled from 'styled-components/native';
 
-const Input = styled.TextInput`
+interface IInput {
+    styles: {
+        backgroundColor?: string;
+        borderRadius?: number;
+        padding?: string;
+        width?: string;
+        height?: string;
+        alignItems?: string;
+        justifyContent?: string;
+        fontSize?: string;
+        color?: string;
+        fontWeight?: string;
+        paddingTop?: number;
+        paddingBottom?: number;
+        paddingLeft?: number;
+        paddingRight?: number;
+        marginLef?: number;
+        marginRight?: number;
+        marginTop?: number;
+        marginBottom?: number;
+        boxShadow?: string;
+    }
+    type?: string;
+}
+
+const Input = styled.TextInput<{props: IInput}>`
     background-color: ${(props) => props.styles.backgroundColor ?? '#fff'};
     border-radius: ${(props) => props.styles.borderRadius ?? 6}px;
     padding: ${(props) => props.styles.padding ?? '12px'};
