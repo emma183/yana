@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, ViewContainer, CustomView, Input, HelperText } from '../componets/atoms';
-import Button from '../componets/molecules/Button';
+import Button from '../componets/molecules/button';
 import { StyleSheet } from "react-native";
 import { useFormik } from "formik";
 import {SigNupValidations as validationSchema} from '../validations';

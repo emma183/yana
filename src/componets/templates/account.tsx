@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { Text,  CustomView, ImageCircle } from '../../componets/atoms';
-import Button from '../molecules/Button';
+import Button from '../molecules/button';
 import { setDeleteChat } from '../../redux/slice/chatSlice';
 import { clearUser, selectUser } from '../../redux/slice/userSlice';
 

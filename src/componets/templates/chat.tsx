@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { CustomView, TextByChat, ScrollView, ViewContainerChat, Input } from '../../componets/atoms';
 import { ChatUser, selectChat, setAddMessageObject } from '../../redux/slice/chatSlice';
 import { selectUser } from '../../redux/slice/userSlice';
-import Button from '../molecules/Button';
+import Button from '../molecules/button';
 
 const ChatTemplate = () => {
     const chat = useSelector(selectChat)
