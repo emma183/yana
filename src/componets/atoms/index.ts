@@ -20,3 +20,5 @@ export { default as TextByChat } from './textByChat';
 export * from './textByChat';
 export { default as ScrollView } from './scrollView';
 export * from './scrollView';
+export { default as ViewContainerChat } from './viewContainerChat';
+export * from './viewContainerChat';

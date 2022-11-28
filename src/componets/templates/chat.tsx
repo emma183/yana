@@ -1,37 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet } from "react-native";
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components/native';
 
-import { CustomView, TextByChat, ScrollView } from '../../componets/atoms';
+import { CustomView, TextByChat, ScrollView, ViewContainerChat, Input } from '../../componets/atoms';
 import { ChatUser, selectChat, setAddMessageObject } from '../../redux/slides/chatSlide';
 import Button from '../molecules/button';
 
 const ChatTemplate = () => {
     const chat = useSelector(selectChat)
     const dispatch = useDispatch();
+    const [message, setMessage] = useState<string | null>(null);
 
     const handleOnSendMessaggess = () => {
-        const message = {
+        const messagePatient = {
             id: ChatUser.Patient,
             name: 'Jane',
-            message: 'Hola, como estas?',
+            message: message,
         }
-        dispatch(setAddMessageObject(message));
+        dispatch(setAddMessageObject(messagePatient));
+        const messageYana = {
+            id: ChatUser.Yana,
+            name: 'Yana',
+            message: 'Hola, estoy bien, y tu?',
+    } 
+    dispatch(setAddMessageObject(messageYana));
+    setMessage(null);
     }
+
+   
 
   return (
     <ViewContainerChat>
         <ScrollView>
-            {chat.map((item, index) => (
+            {chat.length > 0 && chat.map((item, index) => (
                 <CustomView
                     key={index}
                     marginTop='auto'
                     justifyContent={item.id === ChatUser.Yana ? 'flex-start' :'flex-end' }
                     alignItems={item.id === ChatUser.Yana ? 'flex-start' :'flex-end' }
                 >
-                    <TextByChat 
+                    <TextByChat
                         bgColor={item.id === ChatUser.Yana ? '#F0F6FA' :  '#3B9391' }
                         color={item.id === ChatUser.Yana ? '#4B5959' :  'white' }
                         >
@@ -40,12 +49,25 @@ const ChatTemplate = () => {
                 </CustomView>
             ))}
         </ScrollView>
+        <CustomView 
+            flexDirection='row'
+            marginTop={24}
+        >
+            <Input
+                placeholder='Ingresa aquí tu mensaje'
+                styles={styles.input}
+                type='text'
+                onChangeText={setMessage}
+                value={message}
+            />
         <Button
+            disabled={message === null}
             styles={styles.button}
             onPress={handleOnSendMessaggess}      
         >
             add
             </Button>
+            </CustomView>
     </ViewContainerChat>
   );
 };
@@ -54,18 +76,23 @@ const styles = StyleSheet.create({
     button:{
         backGroundColor: '#FF8755',
         textSize: '16px',
-        borderRadius: 32,
-        width: '327px',
-        height: '64px',
+        borderRadius: 50,
+        width: '56px',
+        height: '56px',
         fontSize: '16px',
         fontWeight: 'bold',
         textColor: '#672A11',
-        marginTop: 50,
-      }
+      },
+    input:{
+        backgroundColor: '#FFFFFF',
+        borderRadius: 28,
+        width: '271px',
+        height: '56px',
+        boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.2)',
+        marginRight: 16,
+    }
 })
 
-const ViewContainerChat = styled.View`
-    flex: 1;
-`;
+
 
 export default ChatTemplate;

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { Text,  CustomView, ImageCircle } from '../../componets/atoms';
 import Button from '../../componets/molecules/button';
+import { setDeleteChat } from '../../redux/slides/chatSlide';
 import { clearUser, selectUser } from '../../redux/slides/userSlide';
 
 
@@ -14,6 +15,7 @@ const AccountTemplate = ({navigation}) => {
 
   const handleOnLogout = () => {
     dispatch(clearUser());
+    dispatch(setDeleteChat());
     navigation.navigate('SignUpScreen');
   }
 

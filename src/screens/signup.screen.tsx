@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, ViewContainer, CustomView, Input, HelperText } from '../componets/atoms';
 import Button from '../componets/molecules/button';
 import { StyleSheet } from "react-native";
@@ -8,36 +8,44 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../redux/slides/userSlide';
 
 interface IFormSignUp {
-  name: string;
-  email: string;
-  password: string;
+  name: string | undefined;
+  email: string | undefined;
+  password: string | undefined;
 }
 
 const SignUpScreen = ({navigation}) => {
+  const [isDisabled, setIsDisabled] = useState<boolean>(true);
   const dispatch = useDispatch();
-
   const handleOnSubmit = (values: IFormSignUp) => {
     const userDispatch = {
       name: values.name,
       email: values.email,
      };
     dispatch(
-      setUser(userDispatch),
-      formik.resetForm(),
-      navigation.navigate('Navigation'),
+      setUser(userDispatch)
     )
+    formik.resetForm(),
+    navigation.navigate('Navigation')
   }
 
   const formik = useFormik<IFormSignUp>({
     initialValues: {
-      name: '',
-      email: '',
-      password: '',
+      name: undefined,
+      email: undefined,
+      password: undefined,
     },
     onSubmit: handleOnSubmit,
     validationSchema,
   });
 
+  useEffect(() => {
+    if(formik.values.name === undefined && formik.values.email === undefined && formik.values.password === undefined){
+      setIsDisabled(true);
+    }else{
+      setIsDisabled(false);
+    }
+  }, [formik.values])
+ 
   return (
     <ViewContainer bgColor={'white'} padding={12}>
       <CustomView 
@@ -76,7 +84,7 @@ const SignUpScreen = ({navigation}) => {
             />
           {formik.errors.password && <HelperText>{formik.errors.password}</HelperText>}
           <Button 
-            disabled={!formik.isValid}
+            disabled={isDisabled}
             styles={styles.button}
             onPress={()=> handleOnSubmit(formik.values)} 
           > 

@@ -6,19 +6,7 @@ export enum ChatUser {
 }
 
 const initialState = {
-    chat: [
-        {
-            id: ChatUser.Yana,
-            name: 'Yana',
-            message: 'Hola como estas'
-        },
-        {
-            id: ChatUser.Patient,
-            name: 'Jane',
-            message: 'Hola Yana'
-
-        }
-    ]
+    chat: []
 };
 
 export const chatSlice = createSlice({
@@ -30,10 +18,13 @@ export const chatSlice = createSlice({
         },
         setAddMessageObject: (state, action) => {
             state.chat.push(action.payload);
+        },
+        setDeleteChat: (state) => {
+            state.chat = [];
         }
     }
 });
 
-export const {setChat, setAddMessageObject} = chatSlice.actions;
+export const {setChat, setAddMessageObject, setDeleteChat} = chatSlice.actions;
 export const selectChat = (state) => state.chat.chat;
 export default chatSlice.reducer;

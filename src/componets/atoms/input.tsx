@@ -20,6 +20,7 @@ const Input = styled.TextInput`
     margin-right: ${(props) => props.styles.marginRight ?? 0}px;
     margin-top: ${(props) => props.styles.marginTop ?? 0}px;
     margin-bottom: ${(props) => props.styles.marginBottom ?? 0}px;
+    box-shadow: ${(props) => props.styles.boxShadow ?? 'none'};
     type: ${(props) => props.type ?? 'text'};
 `;
 
