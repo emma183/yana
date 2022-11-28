@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../redux/slides/userSlide';
 import Tab, { TabItem } from '../componets/molecules/tab';
 import AccountTemplate from '../componets/templates/account';
+import ChatTemplate from '../componets/templates/chat';
 
 
-const NavigationScreen = () => {
+const NavigationScreen = ({navigation}) => {
   const user = useSelector(selectUser)
   const [tabSelectedNumber, setTabSelectedNumber] = useState<number | null>(null);
   const [tabSelected, setTabSelected] = useState<ReactNode | null>(null);
@@ -20,10 +21,10 @@ const NavigationScreen = () => {
   useEffect(() => {
     switch (tabSelectedNumber) {
       case 0:
-        setTabSelected(<Text>chat</Text>);
+        setTabSelected(<ChatTemplate />);
         break;
       case 1:
-        setTabSelected(<AccountTemplate/>);
+        setTabSelected(<AccountTemplate navigation={navigation}/>);
         break;
     }
   }, [tabSelectedNumber]);

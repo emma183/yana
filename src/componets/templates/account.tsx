@@ -14,6 +14,7 @@ const AccountTemplate = ({navigation}) => {
 
   const handleOnLogout = () => {
     dispatch(clearUser());
+    navigation.navigate('SignUpScreen');
   }
 
   return (

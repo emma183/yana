@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, ViewContainer, CustomView, Input, HelperText } from '../componets/atoms';
 import Button from '../componets/molecules/button';
 import { StyleSheet } from "react-native";
@@ -23,7 +23,8 @@ const SignUpScreen = ({navigation}) => {
      };
     dispatch(
       setUser(userDispatch),
-      navigation.navigate('Navigation')
+      formik.resetForm(),
+      navigation.navigate('Navigation'),
     )
   }
 
