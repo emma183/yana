@@ -1,15 +1,24 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 // Or from '@reduxjs/toolkit/query/react'
 import {setupListeners} from '@reduxjs/toolkit/query';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER, } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { chatSlice } from './slice/chatSlice';
+import {userSlice} from './slice/userSlice';
+
 
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-const rootReducer = combineReducers([]);
+const rootReducer = combineReducers({ user: userSlice.reducer, chat: chatSlice.reducer});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const preloadedState = {};
@@ -22,7 +31,12 @@ export const store = configureStore({
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
+  //add lines by fixed error console persist redux
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
   // .concat(??.middleware),
 });
 
