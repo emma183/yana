@@ -7,6 +7,7 @@ const Text = styled.Text`
     padding-bottom: ${(props) => props.paddingBottom ?? 0}px;
     padding-left: ${(props) => props.paddingLeft ?? 0}px;
     padding-right: ${(props) => props.paddingRight ?? 0}px;
+    margin-top: ${(props) => props.marginTop ?? 0}px;
     color: ${(props) => props.color ?? '#000'};
 `;
 

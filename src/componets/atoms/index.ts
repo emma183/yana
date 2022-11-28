@@ -14,3 +14,5 @@ export { default as TabItem } from './tabItem';
 export * from './tabItem';
 export { default as TabContainer } from './tabContainer';
 export * from './tabContainer';
+export { default as ImageCircle } from './imageCircle';
+export * from './imageCircle';
